@@ -1,0 +1,12 @@
+application: plucky-vision-274711
+version: 1python
+runtime: python37
+api_version: 1
+threadsafe: yes
+
+handlers:
+  - url: /static
+    static_dir: static
+
+  - url: .*
+    script: auto

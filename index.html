@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My API </title>
+</head>
+<body>
+<div id = "container">
+    <form id="params" action ="/" method = "get">
+        <fieldset>
+            <legend> Birth Name Dataset Params</legend>
+            <ol>
+                <li> <label for = "country">Country</label>
+                <input id="country" name = "country" type = "text" required autofocus></li>
+            </ol>
+            <fieldset class="button">
+                <button type = submit>Submit to BigQuery</button>
+            </fieldset>
+        </fieldset>
+    </form>
+
+    {% if rows%}
+    <h2> Highest number of active cases in: {{ state }}.</h2>
+
+    <table class="bordered">
+        <tr>
+            <th>Date</th>
+            <th>Confirmed</th>
+            <th>Deaths</th>
+            <th>Active</th>
+        </tr>
+
+        {% for row in rows %}
+        <tr>
+            <td> {{ row.date }}</td>
+            <td> {{ row.confirmed }}</td>
+            <td> {{ row.deaths }}</td>
+            <td> {{ row.active }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+</body>
+</html>
